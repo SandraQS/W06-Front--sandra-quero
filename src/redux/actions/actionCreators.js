@@ -1,6 +1,6 @@
 import actionTypes from "./actionTypes";
 
-export const loadRobotAction = (robots) => ({
+export const loadRobotsAction = (robots) => ({
   type: actionTypes.loadRobots,
   robots,
 });
