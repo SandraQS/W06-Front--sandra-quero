@@ -114,7 +114,6 @@ const Form = ({ createNewRobot }) => {
       <button type="submit" className="btn btn-dark">
         Crear mi robot
       </button>
-      <pre>{JSON.stringify(newRobot, null, 2)}</pre>
     </form>
   );
 };
