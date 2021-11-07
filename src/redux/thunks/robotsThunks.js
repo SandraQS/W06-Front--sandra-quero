@@ -1,4 +1,5 @@
 import {
+  createRobotAction,
   deleteRobotByIdAction,
   loadRobotByIdAction,
   loadRobotsAction,
@@ -28,4 +29,17 @@ export const deleteRobotByIdThunk = (id) => async (dispatch) => {
   if (response.ok) {
     dispatch(deleteRobotByIdAction(id));
   }
+};
+
+export const createRobotThunk = (robot) => async (dispatch) => {
+  const response = await fetch(`${urlApi}create${token}`, {
+    method: "POST",
+    body: JSON.stringify(robot),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  const newRobot = await response.json();
+
+  dispatch(createRobotAction(newRobot));
 };
