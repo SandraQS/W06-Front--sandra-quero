@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 const Robot = ({ infoRobot, day, month, year }) => {
   return (
     <article className="card-robot">
@@ -30,6 +32,13 @@ const Robot = ({ infoRobot, day, month, year }) => {
       </button>
     </article>
   );
+};
+
+Robot.propTypes = {
+  infoRobot: PropTypes.object.isRequired,
+  day: PropTypes.number.isRequired,
+  month: PropTypes.number.isRequired,
+  year: PropTypes.number.isRequired,
 };
 
 export default Robot;
