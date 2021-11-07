@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import useRobot from "../../hooks/useRobot";
+import "./Robot.css";
 
 const Robot = ({ infoRobot, day, month, year }) => {
   const { deleteRobots } = useRobot();
@@ -7,14 +8,17 @@ const Robot = ({ infoRobot, day, month, year }) => {
     deleteRobots(id);
   };
   return (
-    <article className="card-robot">
-      <img
-        src={infoRobot.imagen}
-        alt={infoRobot.nombre}
-        className="card-robot__image"
-        whith="150"
-      />
-      <h2 className=" card-robot__title">{infoRobot.nombre}</h2>
+    <article className="card-robot col-6">
+      <div className="card-robot_container-image">
+        <img
+          src={infoRobot.imagen}
+          alt={infoRobot.nombre}
+          className="card-robot__image"
+          whith="150"
+        />
+      </div>
+
+      <h2 className="card-robot__title">{infoRobot.nombre}</h2>
       <h3 className="card-robot__title-features">
         Características de {infoRobot.nombre}
       </h3>
@@ -29,12 +33,12 @@ const Robot = ({ infoRobot, day, month, year }) => {
           Fecha de creación: {`${day}-${month}-${year} `}
         </li>
       </ul>
-      <button type="button" className="btn btn-dark card-robot__edit">
+      <button type="button" className="btn btn-dark card-robot__edit col-6">
         Editar
       </button>
       <button
         type="button"
-        className="btn btn-danger card-robot__delete"
+        className="btn btn-danger card-robot__delete col-6"
         onClick={() => {
           clickDelete(infoRobot._id);
         }}

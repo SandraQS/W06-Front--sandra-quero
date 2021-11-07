@@ -1,0 +1,33 @@
+.card-robot {
+  padding: 20px;
+}
+.card-robot_container-image {
+  width: 100%;
+  height: 58vh;
+}
+.card-robot__image {
+  width: 100%;
+  height: 58vh;
+  object-fit: cover;
+}
+
+.card-robot__title {
+  font-size: 35px;
+}
+
+.card-robot__title-features {
+  font-size: 25px;
+  color: gray;
+  font-weight: normal;
+  padding-left: 20px;
+}
+
+.card-robot__list-features {
+  list-style: none;
+}
+.card-robot__feature {
+  border-left: 2px brown solid;
+  padding: 3px;
+  padding-left: 10px;
+  margin-bottom: 10px;
+}
