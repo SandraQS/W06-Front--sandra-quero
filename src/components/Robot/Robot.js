@@ -2,9 +2,8 @@ import PropTypes from "prop-types";
 import useRobot from "../../hooks/useRobot";
 
 const Robot = ({ infoRobot, day, month, year }) => {
-  const { robots, deleteRobots } = useRobot();
-  const cickDelete = (id) => {
-    console.log(robots);
+  const { deleteRobots } = useRobot();
+  const clickDelete = (id) => {
     deleteRobots(id);
   };
   return (
@@ -37,7 +36,7 @@ const Robot = ({ infoRobot, day, month, year }) => {
         type="button"
         className="btn btn-danger card-robot__delete"
         onClick={() => {
-          cickDelete(infoRobot._id);
+          clickDelete(infoRobot._id);
         }}
       >
         Eliminar
