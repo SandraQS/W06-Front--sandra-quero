@@ -40,7 +40,7 @@ exports[`Given Robots component When it's rendered Then it should match with de 
       className="card-robot__feature"
     >
       Fecha de creación: 
-      1996-05-19T22:00:00.000Z
+      undefined-undefined-undefined 
     </li>
   </ul>
   <button
