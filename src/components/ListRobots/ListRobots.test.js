@@ -1,7 +1,6 @@
 import { render, screen, waitFor } from "@testing-library/react";
 import React from "react";
 import { Provider } from "react-redux";
-import App from "../../App";
 import { server } from "../../mocks/server";
 import configureStore from "../../redux/store";
 import ListRobots from "./ListRobots";
@@ -33,10 +32,18 @@ describe("Given ListRobots component", () => {
 
       const nameRobot = await screen.findByText("Aire");
       const srcImageRobot = await screen.findByRole("img", { name: "Aire" });
+      const [feature1Robot] = await screen.findAllByText("Resistencia: 9");
+      const [feature2Robot] = await screen.findAllByText("Resistencia: 9");
+      const [feature3Robot] = await screen.findAllByText(
+        "Fecha de creación: 20-4-1996"
+      );
 
       await waitFor(() => {
         expect(nameRobot).toBeInTheDocument();
         expect(srcImageRobot).toBeInTheDocument();
+        expect(feature1Robot).toBeInTheDocument();
+        expect(feature2Robot).toBeInTheDocument();
+        expect(feature3Robot).toBeInTheDocument();
       });
     });
   });
