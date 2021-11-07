@@ -34,11 +34,11 @@ const Robot = ({ infoRobot, day, month, year }) => {
   );
 };
 
-Robot.propTypes = {
-  infoRobot: PropTypes.object.isRequired,
-  day: PropTypes.number.isRequired,
-  month: PropTypes.number.isRequired,
-  year: PropTypes.number.isRequired,
-};
+// Robot.propTypes = {
+//   infoRobot: PropTypes.object.isRequired,
+//   day: PropTypes.number.isRequired,
+//   month: PropTypes.number.isRequired,
+//   year: PropTypes.number.isRequired,
+// };
 
 export default Robot;
