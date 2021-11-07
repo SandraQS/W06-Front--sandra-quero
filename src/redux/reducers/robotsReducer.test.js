@@ -1,6 +1,7 @@
 import {
   loadRobotByIdAction,
   loadRobotsAction,
+  createRobotAction,
 } from "../actions/actionCreators";
 import robotsReducer from "./robotsReducer";
 
@@ -96,6 +97,40 @@ describe("Given robotsReducer reducer", () => {
       const newRobots = robotsReducer(robots, action);
 
       expect(newRobots).toEqual(robots);
+    });
+  });
+
+  describe("When it receives an array and object and an createRobot action with a new object", () => {
+    test("Then it should return an array with this object added", () => {
+      const newRobot = {
+        _id: "61857c0154ce63991d588ddc",
+        nombre: "Oreo",
+        imagen:
+          "https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/styles/hc_1440x810/public/media/image/2020/04/astro-robot-ps5-1920415.jpg?h=d1cb525d&itok=NpaKRK-Q",
+        caracteristicas: {
+          velocidad: 3,
+          resistencia: 10,
+          creacion: "1996-05-19T22:00:00.000Z",
+        },
+      };
+      const action = createRobotAction(newRobot);
+      const robots = [
+        {
+          _id: "61855ad154ce63991d588ddb",
+          nombre: "Aire",
+          imagen:
+            "https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/styles/hc_1440x810/public/media/image/2020/04/astro-robot-ps5-1920415.jpg?h=d1cb525d&itok=NpaKRK-Q",
+          caracteristicas: {
+            velocidad: 5,
+            resistencia: 9,
+            creacion: "1996-05-19T22:00:00.000Z",
+          },
+        },
+      ];
+
+      const newRobots = robotsReducer(robots, action);
+
+      expect(newRobots).toContain(newRobot);
     });
   });
 });
