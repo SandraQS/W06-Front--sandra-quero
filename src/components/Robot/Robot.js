@@ -1,6 +1,12 @@
 import PropTypes from "prop-types";
+import useRobot from "../../hooks/useRobot";
 
 const Robot = ({ infoRobot, day, month, year }) => {
+  const { robots, deleteRobots } = useRobot();
+  const cickDelete = (id) => {
+    console.log(robots);
+    deleteRobots(id);
+  };
   return (
     <article className="card-robot">
       <img
@@ -27,7 +33,13 @@ const Robot = ({ infoRobot, day, month, year }) => {
       <button type="button" className="btn btn-dark card-robot__edit">
         Editar
       </button>
-      <button type="button" className="btn btn-danger card-robot__delete">
+      <button
+        type="button"
+        className="btn btn-danger card-robot__delete"
+        onClick={() => {
+          cickDelete(infoRobot._id);
+        }}
+      >
         Eliminar
       </button>
     </article>
