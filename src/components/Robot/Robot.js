@@ -1,4 +1,4 @@
-const Robot = ({ infoRobot }) => {
+const Robot = ({ infoRobot, day, month, year }) => {
   return (
     <article className="card-robot">
       <img
@@ -19,7 +19,7 @@ const Robot = ({ infoRobot }) => {
           Resistencia: {infoRobot.caracteristicas.resistencia}
         </li>
         <li className="card-robot__feature">
-          Fecha de creación: {infoRobot.caracteristicas.creacion}
+          Fecha de creación: {`${day}-${month}-${year}`}
         </li>
       </ul>
       <button type="button" className="btn btn-dark card-robot__edit">
