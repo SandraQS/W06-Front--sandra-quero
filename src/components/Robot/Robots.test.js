@@ -1,3 +1,5 @@
+import { getByRole, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import ReactTestRenderer from "react-test-renderer";
 import Robot from "./Robot";
 
@@ -21,6 +23,17 @@ describe("Given Robots component", () => {
       );
 
       expect(robotCard.toJSON()).toMatchSnapshot();
+    });
+  });
+  describe("When click in button delete", () => {
+    test("Then it should call clickDelete function", async () => {
+      const clickDelete = jest.fn();
+      screen.debug();
+      const buttonDelete = await screen.findByRole("button");
+
+      // buttonDelete.addEventListener("click", clickDelete);
+      userEvent.click(buttonDelete);
+      expect(clickDelete).toBeCalled();
     });
   });
 });
