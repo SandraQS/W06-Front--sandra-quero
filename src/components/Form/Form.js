@@ -15,10 +15,11 @@ const Form = ({ createNewRobot }) => {
   );
 
   const [newRobot, setNewRobot] = useState(initialData);
-
+  const [created, setCreated] = useState(false);
   const infoRobot = (event) => {
     event.preventDefault();
     setNewRobot({ ...newRobot, [event.target.id]: event.target.value });
+    setCreated(true);
   };
 
   const featuresRobot = (event) => {
@@ -30,13 +31,18 @@ const Form = ({ createNewRobot }) => {
         [event.target.id]: event.target.value,
       },
     });
+    setCreated(true);
   };
 
   const clickCreate = (event) => {
     event.preventDefault();
-    createNewRobot(newRobot);
-    setNewRobot(initialData);
+    if (created) {
+      createNewRobot(newRobot);
+      setNewRobot(initialData);
+      setCreated(false);
+    }
   };
+
   return (
     <form
       onSubmit={(event) => {
