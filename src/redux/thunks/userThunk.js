@@ -1,5 +1,5 @@
 import jwtDecode from "jwt-decode";
-import { loginUserAction, logoutUserAction } from "../actions/actionCreators";
+import { loginUserAction } from "../actions/actionCreators";
 
 const urlApi = process.env.REACT_APP_URL_API_ROBOTS;
 
