@@ -5,7 +5,7 @@ import useRobot from "./hooks/useRobot";
 import Login from "./components/Login/Login";
 
 function App() {
-  const { createNewRobot, loginUser, user } = useRobot();
+  const { createNewRobot, user } = useRobot();
 
   return user.isAuth ? (
     <>
