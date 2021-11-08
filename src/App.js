@@ -2,15 +2,19 @@ import "./App.css";
 import ListRobots from "./components/ListRobots/ListRobots";
 import Form from "./components/Form/Form";
 import useRobot from "./hooks/useRobot";
+import Login from "./components/Login/Login";
 
 function App() {
-  const { createNewRobot } = useRobot();
-  return (
+  const { createNewRobot, loginUser, user } = useRobot();
+
+  return user.isAuth ? (
     <>
-      <h1>Los Perretes Robot</h1>
+      (<h1>Los Perretes Robot</h1>
       <ListRobots />
       <Form createNewRobot={createNewRobot} />
     </>
+  ) : (
+    <Login />
   );
 }
 

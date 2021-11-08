@@ -5,10 +5,14 @@ import {
   deleteRobotByIdThunk,
   loadRobotsActionThunk,
 } from "../redux/thunks/robotsThunks";
+import { loginUserActionThunk } from "../redux/thunks/userThunk";
 
 const useRobot = () => {
   const dispatch = useDispatch();
-  const robots = useSelector(({ robots }) => robots);
+  const { robots, user } = useSelector(({ robots, user }) => ({
+    robots,
+    user,
+  }));
 
   const loadRobots = useCallback(() => {
     dispatch(loadRobotsActionThunk());
@@ -22,12 +26,18 @@ const useRobot = () => {
     dispatch(createRobotThunk(robot));
   };
 
+  const loginUser = (user) => {
+    dispatch(loginUserActionThunk(user));
+  };
+
   return {
     dispatch,
     robots,
+    user,
     loadRobots,
     deleteRobots,
     createNewRobot,
+    loginUser,
   };
 };
 
