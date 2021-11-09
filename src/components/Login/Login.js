@@ -1,9 +1,12 @@
 import { useState } from "react";
+import useRobot from "../../hooks/useRobot";
 
 const Login = () => {
-  const ClickLogin = (event) => {
+  const { loginUser } = useRobot();
+  const clickLogin = (event) => {
     event.preventDefault();
-    console.log("yes");
+    loginUser(loginData);
+    console.log(loginData);
   };
 
   const InitialLogin = {
@@ -23,7 +26,7 @@ const Login = () => {
 
   return (
     <>
-      <form onSubmit={ClickLogin}>
+      <form onSubmit={clickLogin}>
         <div className="form-group">
           <label htmlFor="usuario">Usuario: </label>
           <input
