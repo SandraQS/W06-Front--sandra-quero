@@ -6,7 +6,6 @@ const Login = () => {
   const clickLogin = (event) => {
     event.preventDefault();
     loginUser(loginData);
-    console.log(loginData);
   };
 
   const InitialLogin = {

@@ -15,7 +15,6 @@ export const loadRobotsActionThunk = () => async (dispatch) => {
       Authorization: "Bearer " + token,
     },
   });
-  console.log(response + "ddd");
   if (response.ok) {
     const arrayRobots = await response.json();
     dispatch(loadRobotsAction(arrayRobots));
