@@ -5,6 +5,7 @@ const actionTypes = {
   createRobot: "CREATE_ROBOT",
   loginUser: "LOGIN_USER",
   logoutUser: "LOGOUT_USER",
+  userRegitered: "REGITERED_USER",
 };
 
 export default actionTypes;
