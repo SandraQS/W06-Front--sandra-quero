@@ -1,12 +1,8 @@
-import { useEffect } from "react";
 import useRobot from "../../hooks/useRobot";
 import Robot from "../Robot/Robot";
 
 const ListRobots = () => {
-  const { robots, loadRobots } = useRobot();
-  useEffect(() => {
-    loadRobots();
-  }, [loadRobots]);
+  const { robots } = useRobot();
 
   return (
     <section className="section-robots row">

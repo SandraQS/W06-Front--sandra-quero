@@ -1,20 +1,19 @@
+import axios from "axios";
 import jwtDecode from "jwt-decode";
 import { loginUserAction } from "../actions/actionCreators";
 
-const urlApi = process.env.REACT_APP_URL_API_ROBOTS;
+const urlApi = process.env.REACT_APP_URL_API_USERS;
 
 export const loginUserActionThunk = (user) => async (dispatch) => {
-  const response = await fetch(`${urlApi}login`, {
-    method: "POST",
-    body: JSON.stringify(user),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
-  if (response.ok) {
-    const token = response.token;
+  const response = await axios.post(`${urlApi}login`, user);
+  console.log(user);
+
+  if (response.status === 200) {
+    const token = response.data.token;
     const user = jwtDecode(token);
+    console.log(token);
+
     dispatch(loginUserAction(user));
-    localStorage.setItem("user", JSON.stringify({ token }));
+    localStorage.setItem("user", JSON.stringify({ token: token }));
   }
 };
