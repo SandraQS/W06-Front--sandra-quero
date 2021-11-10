@@ -25,11 +25,11 @@ export const loginUserAction = (user) => ({
   user,
 });
 
-export const logoutUserAction = () => ({
-  type: actionTypes.logoutUser,
-});
-
 export const userRegiteredAction = (user) => ({
   type: actionTypes.userRegitered,
   user,
+});
+
+export const logoutUserAction = () => ({
+  type: actionTypes.logoutUser,
 });

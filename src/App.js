@@ -18,7 +18,6 @@ function App() {
       loadRobots();
     }
   }, [loadRobots, isAuth, userRegitered]);
-  console.log(user);
   return isAuth ? (
     <>
       <h1>Los Perretes Robot</h1>

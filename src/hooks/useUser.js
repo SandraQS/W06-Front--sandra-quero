@@ -1,5 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
-import { userRegiteredAction } from "../redux/actions/actionCreators";
+import {
+  logoutUserAction,
+  userRegiteredAction,
+} from "../redux/actions/actionCreators";
 import { loginUserActionThunk } from "../redux/thunks/userThunk";
 import jwtDecode from "jwt-decode";
 import { useCallback } from "react";
@@ -22,11 +25,19 @@ const useUser = () => {
     }
   }, [dispatch]);
 
+  const logoutUser = () => {
+    const logoutUser = localStorage.removeItem("user");
+    if (!logoutUser) {
+      dispatch(logoutUserAction());
+    }
+  };
+
   return {
     dispatch,
     user,
     loginUser,
     userRegitered,
+    logoutUser,
   };
 };
 
