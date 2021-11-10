@@ -5,6 +5,7 @@ import useRobot from "./hooks/useRobot";
 import Login from "./components/Login/Login";
 import { useEffect } from "react";
 import useUser from "./hooks/useUser";
+import Logout from "./components/Logout/Logout";
 
 function App() {
   const { createNewRobot, loadRobots } = useRobot();
@@ -17,9 +18,11 @@ function App() {
       loadRobots();
     }
   }, [loadRobots, isAuth, userRegitered]);
+  console.log(user);
   return isAuth ? (
     <>
       <h1>Los Perretes Robot</h1>
+      <Logout user={user} />
       <ListRobots />
       <Form createNewRobot={createNewRobot} />
     </>
